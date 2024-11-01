@@ -1,0 +1,31 @@
+[2024-06-28T04:10:22.613+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-28T04:10:22.675+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-28T04:10:22.702+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-28T04:10:22.758+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: selenium_minio_.upload_to_minio_task manual__2024-06-28T03:51:53.637078+00:00 [queued]>
+[2024-06-28T04:10:22.772+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: selenium_minio_.upload_to_minio_task manual__2024-06-28T03:51:53.637078+00:00 [queued]>
+[2024-06-28T04:10:22.774+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-28T04:10:22.798+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): upload_to_minio_task> on 2024-06-28 03:51:53.637078+00:00
+[2024-06-28T04:10:22.807+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=826) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-28T04:10:22.809+0000] {standard_task_runner.py:63} INFO - Started process 827 to run task
+[2024-06-28T04:10:22.810+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'selenium_minio_', 'upload_to_minio_task', 'manual__2024-06-28T03:51:53.637078+00:00', '--job-id', '834', '--raw', '--subdir', 'DAGS_FOLDER/crawl_minio.py', '--cfg-path', '/tmp/tmpp25n06c8']
+[2024-06-28T04:10:22.813+0000] {standard_task_runner.py:91} INFO - Job 834: Subtask upload_to_minio_task
+[2024-06-28T04:10:22.865+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-28T04:10:22.876+0000] {task_command.py:426} INFO - Running <TaskInstance: selenium_minio_.upload_to_minio_task manual__2024-06-28T03:51:53.637078+00:00 [running]> on host ccfa35e0da07
+[2024-06-28T04:10:22.877+0000] {settings.py:363} DEBUG - Disposing DB connection pool (PID 827)
+[2024-06-28T04:10:22.878+0000] {settings.py:250} DEBUG - Setting up DB connection pool (PID 827)
+[2024-06-28T04:10:22.878+0000] {settings.py:298} DEBUG - settings.prepare_engine_args(): Using NullPool
+[2024-06-28T04:10:22.940+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-28T04:10:23.027+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='selenium_minio_' AIRFLOW_CTX_TASK_ID='upload_to_minio_task' AIRFLOW_CTX_EXECUTION_DATE='2024-06-28T03:51:53.637078+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-28T03:51:53.637078+00:00'
+[2024-06-28T04:10:23.029+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-28T04:10:25.843+0000] {crawl_minio.py:79} INFO - Bucket datafbcrawl already exists
+[2024-06-28T04:10:27.320+0000] {crawl_minio.py:82} INFO - Uploaded data as object page_data/page_data_100087476232250.json to bucket datafbcrawl
+[2024-06-28T04:10:27.350+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-06-28T04:10:27.351+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-28T04:10:27.363+0000] {taskinstance.py:584} DEBUG - Clearing next_method and next_kwargs.
+[2024-06-28T04:10:27.364+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=selenium_minio_, task_id=upload_to_minio_task, run_id=manual__2024-06-28T03:51:53.637078+00:00, execution_date=20240628T035153, start_date=20240628T041022, end_date=20240628T041027
+[2024-06-28T04:10:27.365+0000] {taskinstance.py:562} DEBUG - Task Duration set to 4.605102
+[2024-06-28T04:10:27.449+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-28T04:10:27.470+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-28T04:10:27.479+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

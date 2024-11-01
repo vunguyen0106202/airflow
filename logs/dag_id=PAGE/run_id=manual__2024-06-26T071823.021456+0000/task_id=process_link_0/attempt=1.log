@@ -1,0 +1,167 @@
+[2024-06-26T07:18:35.033+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-26T07:18:35.112+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-26T07:18:35.145+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-26T07:18:35.219+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: PAGE.process_link_0 manual__2024-06-26T07:18:23.021456+00:00 [queued]>
+[2024-06-26T07:18:35.243+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: PAGE.process_link_0 manual__2024-06-26T07:18:23.021456+00:00 [queued]>
+[2024-06-26T07:18:35.246+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-26T07:18:35.294+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): process_link_0> on 2024-06-26 07:18:23.021456+00:00
+[2024-06-26T07:18:35.308+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=1350) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-26T07:18:35.313+0000] {standard_task_runner.py:63} INFO - Started process 1351 to run task
+[2024-06-26T07:18:35.314+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'PAGE', 'process_link_0', 'manual__2024-06-26T07:18:23.021456+00:00', '--job-id', '524', '--raw', '--subdir', 'DAGS_FOLDER/page_***.py', '--cfg-path', '/tmp/tmp1puuz506']
+[2024-06-26T07:18:35.318+0000] {standard_task_runner.py:91} INFO - Job 524: Subtask process_link_0
+[2024-06-26T07:18:35.446+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-26T07:18:35.471+0000] {task_command.py:426} INFO - Running <TaskInstance: PAGE.process_link_0 manual__2024-06-26T07:18:23.021456+00:00 [running]> on host ccfa35e0da07
+[2024-06-26T07:18:35.472+0000] {settings.py:363} DEBUG - Disposing DB connection pool (PID 1351)
+[2024-06-26T07:18:35.475+0000] {settings.py:250} DEBUG - Setting up DB connection pool (PID 1351)
+[2024-06-26T07:18:35.478+0000] {settings.py:298} DEBUG - settings.prepare_engine_args(): Using NullPool
+[2024-06-26T07:18:35.660+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-26T07:18:35.807+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='PAGE' AIRFLOW_CTX_TASK_ID='process_link_0' AIRFLOW_CTX_EXECUTION_DATE='2024-06-26T07:18:23.021456+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-26T07:18:23.021456+00:00'
+[2024-06-26T07:18:35.810+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-26T07:18:38.033+0000] {connectionpool.py:244} DEBUG - Starting new HTTP connection (1): localhost:36383
+[2024-06-26T07:18:39.550+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session HTTP/1.1" 200 0
+[2024-06-26T07:18:40.458+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/url HTTP/1.1" 200 0
+[2024-06-26T07:18:40.535+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/element HTTP/1.1" 200 0
+[2024-06-26T07:18:40.579+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "GET /session/84efe080a3bab432a1bd56847db17950/element/f.416844B1F72F683271503A6F170FE1BC.d.5BE94AC8E1409BE316A7DF4237C6FC67.e.2/text HTTP/1.1" 200 0
+[2024-06-26T07:18:40.582+0000] {logging_mixin.py:188} INFO - 130885564570
+[2024-06-26T07:18:40.912+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/url HTTP/1.1" 200 0
+[2024-06-26T07:18:40.978+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/element HTTP/1.1" 200 0
+[2024-06-26T07:18:41.046+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "GET /session/84efe080a3bab432a1bd56847db17950/element/f.416844B1F72F683271503A6F170FE1BC.d.46FFF7F78944C9995DC25181A93154F3.e.4/text HTTP/1.1" 200 0
+[2024-06-26T07:18:41.051+0000] {logging_mixin.py:188} INFO - ok
+[2024-06-26T07:18:44.612+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/url HTTP/1.1" 200 0
+[2024-06-26T07:18:44.641+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/element HTTP/1.1" 200 0
+[2024-06-26T07:18:44.808+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "GET /session/84efe080a3bab432a1bd56847db17950/element/f.416844B1F72F683271503A6F170FE1BC.d.9F0F1D5F206F9AC5B1F477A961C822F9.e.6/text HTTP/1.1" 200 0
+[2024-06-26T07:18:49.721+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/url HTTP/1.1" 200 0
+[2024-06-26T07:18:49.884+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/element HTTP/1.1" 200 0
+[2024-06-26T07:18:50.437+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "GET /session/84efe080a3bab432a1bd56847db17950/element/f.416844B1F72F683271503A6F170FE1BC.d.E68EDE58934D7B6CA6CB8D54C3FB7B99.e.8/text HTTP/1.1" 200 0
+[2024-06-26T07:18:50.486+0000] {fun_page.py:109} INFO - getting another set
+[2024-06-26T07:19:00.134+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/url HTTP/1.1" 200 0
+[2024-06-26T07:19:00.190+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/element HTTP/1.1" 200 0
+[2024-06-26T07:19:00.455+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "GET /session/84efe080a3bab432a1bd56847db17950/element/f.416844B1F72F683271503A6F170FE1BC.d.9BCF119A70852451C91C70AE5C20F80A.e.10/text HTTP/1.1" 200 0
+[2024-06-26T07:19:00.470+0000] {fun_page.py:109} INFO - getting another set
+[2024-06-26T07:19:04.890+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/url HTTP/1.1" 200 0
+[2024-06-26T07:19:04.910+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/element HTTP/1.1" 200 0
+[2024-06-26T07:19:05.211+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "GET /session/84efe080a3bab432a1bd56847db17950/element/f.416844B1F72F683271503A6F170FE1BC.d.BF37ED07956DFA806621FE9016606976.e.12/text HTTP/1.1" 200 0
+[2024-06-26T07:19:05.241+0000] {fun_page.py:109} INFO - getting another set
+[2024-06-26T07:19:15.692+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/url HTTP/1.1" 200 0
+[2024-06-26T07:19:15.737+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/element HTTP/1.1" 200 0
+[2024-06-26T07:19:16.292+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "GET /session/84efe080a3bab432a1bd56847db17950/element/f.416844B1F72F683271503A6F170FE1BC.d.651A3939463E5A096F69ED2FA1E33100.e.14/text HTTP/1.1" 200 0
+[2024-06-26T07:19:16.331+0000] {fun_page.py:109} INFO - getting another set
+[2024-06-26T07:19:20.224+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/url HTTP/1.1" 200 0
+[2024-06-26T07:19:20.242+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/element HTTP/1.1" 200 0
+[2024-06-26T07:19:20.371+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "GET /session/84efe080a3bab432a1bd56847db17950/element/f.416844B1F72F683271503A6F170FE1BC.d.C458E6B59EEA1825775083E74ABF0DCE.e.16/text HTTP/1.1" 200 0
+[2024-06-26T07:19:20.382+0000] {fun_page.py:109} INFO - getting another set
+[2024-06-26T07:19:25.301+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/url HTTP/1.1" 200 0
+[2024-06-26T07:19:25.452+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/element HTTP/1.1" 200 0
+[2024-06-26T07:19:25.830+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "GET /session/84efe080a3bab432a1bd56847db17950/element/f.416844B1F72F683271503A6F170FE1BC.d.6EBF1E92706682E1980F4FD6C4A178B7.e.18/text HTTP/1.1" 200 0
+[2024-06-26T07:19:25.854+0000] {fun_page.py:109} INFO - getting another set
+[2024-06-26T07:19:53.312+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/url HTTP/1.1" 200 0
+[2024-06-26T07:19:53.429+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/element HTTP/1.1" 200 0
+[2024-06-26T07:19:53.752+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "GET /session/84efe080a3bab432a1bd56847db17950/element/f.416844B1F72F683271503A6F170FE1BC.d.5E5904972ADC74734A4723FE347124C4.e.20/text HTTP/1.1" 200 0
+[2024-06-26T07:19:53.782+0000] {fun_page.py:109} INFO - getting another set
+[2024-06-26T07:19:57.757+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/url HTTP/1.1" 200 0
+[2024-06-26T07:19:57.827+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/element HTTP/1.1" 200 0
+[2024-06-26T07:19:58.169+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "GET /session/84efe080a3bab432a1bd56847db17950/element/f.416844B1F72F683271503A6F170FE1BC.d.6BC6960A39833030174D23EBE0FDC488.e.22/text HTTP/1.1" 200 0
+[2024-06-26T07:19:58.181+0000] {fun_page.py:109} INFO - getting another set
+[2024-06-26T07:20:01.111+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/url HTTP/1.1" 200 0
+[2024-06-26T07:20:01.136+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "POST /session/84efe080a3bab432a1bd56847db17950/element HTTP/1.1" 200 0
+[2024-06-26T07:20:01.273+0000] {connectionpool.py:549} DEBUG - http://localhost:36383 "GET /session/84efe080a3bab432a1bd56847db17950/element/f.416844B1F72F683271503A6F170FE1BC.d.2906638EC7DA0E965AD0184B0E9AF3CC.e.24/text HTTP/1.1" 200 0
+[2024-06-26T07:20:01.286+0000] {fun_page.py:109} INFO - getting another set
+[2024-06-26T07:20:03.055+0000] {local_task_job_runner.py:310} WARNING - State of this instance has been externally set to restarting. Terminating instance.
+[2024-06-26T07:20:03.057+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-26T07:20:03.061+0000] {process_utils.py:132} INFO - Sending 15 to group 1351. PIDs of all processes in the group: [1389, 1395, 1410, 1411, 1435, 1413, 1474, 1464, 1465, 1351]
+[2024-06-26T07:20:03.062+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 1351
+[2024-06-26T07:20:03.066+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-06-26T07:20:03.072+0000] {connectionpool.py:244} DEBUG - Starting new HTTP connection (2): localhost:36383
+[2024-06-26T07:20:03.077+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fab09b47560>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/84efe080a3bab432a1bd56847db17950
+[2024-06-26T07:20:03.080+0000] {connectionpool.py:244} DEBUG - Starting new HTTP connection (3): localhost:36383
+[2024-06-26T07:20:03.083+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fab09b47740>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/84efe080a3bab432a1bd56847db17950
+[2024-06-26T07:20:03.085+0000] {connectionpool.py:244} DEBUG - Starting new HTTP connection (4): localhost:36383
+[2024-06-26T07:20:03.087+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fab09b477d0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/84efe080a3bab432a1bd56847db17950
+[2024-06-26T07:20:03.090+0000] {connectionpool.py:244} DEBUG - Starting new HTTP connection (5): localhost:36383
+[2024-06-26T07:20:03.201+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=1474, status='terminated', started='07:18:38') (1474) terminated with exit code None
+[2024-06-26T07:20:03.203+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=1464, status='terminated', started='07:18:38') (1464) terminated with exit code None
+[2024-06-26T07:20:03.206+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=1411, status='terminated', started='07:18:37') (1411) terminated with exit code None
+[2024-06-26T07:20:03.338+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-26T07:20:03.342+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=1465, status='terminated', started='07:18:38') (1465) terminated with exit code None
+[2024-06-26T07:20:03.344+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=1413, status='terminated', started='07:18:37') (1413) terminated with exit code None
+[2024-06-26T07:20:03.369+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/page_airflow.py", line 126, in process_link
+    result = run_selenium_job(link)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/page_airflow.py", line 68, in run_selenium_job
+    result = functions_instance.get_all_data(driver, page_id, access_token)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/fun/fun_page.py", line 246, in get_all_data
+    posts_dict = self.get_posts(driver, user_id, access_token)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/fun/fun_page.py", line 94, in get_posts
+    driver.get(next_url)
+  File "/home/airflow/.local/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 356, in get
+    self.execute(Command.GET, {"url": url})
+  File "/home/airflow/.local/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 345, in execute
+    response = self.command_executor.execute(driver_command, params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/selenium/webdriver/remote/remote_connection.py", line 302, in execute
+    return self._request(command_info[0], url, body=data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/selenium/webdriver/remote/remote_connection.py", line 322, in _request
+    response = self._conn.request(method, url, body=body, headers=headers)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/_request_methods.py", line 144, in request
+    return self.request_encode_body(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/_request_methods.py", line 279, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/poolmanager.py", line 444, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 466, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/socket.py", line 708, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2613, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2024-06-26T07:20:03.426+0000] {taskinstance.py:562} DEBUG - Task Duration set to 88.205004
+[2024-06-26T07:20:03.431+0000] {taskinstance.py:584} DEBUG - Clearing next_method and next_kwargs.
+[2024-06-26T07:20:03.432+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=PAGE, task_id=process_link_0, run_id=manual__2024-06-26T07:18:23.021456+00:00, execution_date=20240626T071823, start_date=20240626T071835, end_date=20240626T072003
+[2024-06-26T07:20:03.613+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=1410, status='terminated', started='07:18:37') (1410) terminated with exit code None
+[2024-06-26T07:20:03.615+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=1389, status='terminated', started='07:18:37') (1389) terminated with exit code None
+[2024-06-26T07:20:03.616+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=1435, status='terminated', started='07:18:38') (1435) terminated with exit code None
+[2024-06-26T07:20:03.618+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=1395, status='terminated', started='07:18:37') (1395) terminated with exit code None
+[2024-06-26T07:20:03.620+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=1351, status='terminated', exitcode=2, started='07:18:34') (1351) terminated with exit code 2

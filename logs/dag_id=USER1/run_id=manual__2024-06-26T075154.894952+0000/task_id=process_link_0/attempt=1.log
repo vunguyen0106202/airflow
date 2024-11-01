@@ -1,0 +1,56 @@
+[2024-06-26T07:51:58.832+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-26T07:51:58.866+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-26T07:51:58.882+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-26T07:51:58.918+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: USER1.process_link_0 manual__2024-06-26T07:51:54.894952+00:00 [queued]>
+[2024-06-26T07:51:58.930+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: USER1.process_link_0 manual__2024-06-26T07:51:54.894952+00:00 [queued]>
+[2024-06-26T07:51:58.931+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-26T07:51:58.952+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): process_link_0> on 2024-06-26 07:51:54.894952+00:00
+[2024-06-26T07:51:58.959+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=2483) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-26T07:51:58.961+0000] {standard_task_runner.py:63} INFO - Started process 2484 to run task
+[2024-06-26T07:51:58.962+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'USER1', 'process_link_0', 'manual__2024-06-26T07:51:54.894952+00:00', '--job-id', '536', '--raw', '--subdir', 'DAGS_FOLDER/user_***.py', '--cfg-path', '/tmp/tmpemhvd5nw']
+[2024-06-26T07:51:58.963+0000] {standard_task_runner.py:91} INFO - Job 536: Subtask process_link_0
+[2024-06-26T07:51:59.017+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-26T07:51:59.025+0000] {task_command.py:426} INFO - Running <TaskInstance: USER1.process_link_0 manual__2024-06-26T07:51:54.894952+00:00 [running]> on host ccfa35e0da07
+[2024-06-26T07:51:59.026+0000] {settings.py:363} DEBUG - Disposing DB connection pool (PID 2484)
+[2024-06-26T07:51:59.027+0000] {settings.py:250} DEBUG - Setting up DB connection pool (PID 2484)
+[2024-06-26T07:51:59.028+0000] {settings.py:298} DEBUG - settings.prepare_engine_args(): Using NullPool
+[2024-06-26T07:51:59.080+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-26T07:51:59.141+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='USER1' AIRFLOW_CTX_TASK_ID='process_link_0' AIRFLOW_CTX_EXECUTION_DATE='2024-06-26T07:51:54.894952+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-26T07:51:54.894952+00:00'
+[2024-06-26T07:51:59.144+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-26T07:52:00.616+0000] {connectionpool.py:244} DEBUG - Starting new HTTP connection (1): localhost:45995
+[2024-06-26T07:52:01.467+0000] {connectionpool.py:549} DEBUG - http://localhost:45995 "POST /session HTTP/1.1" 200 0
+[2024-06-26T07:52:01.522+0000] {connectionpool.py:549} DEBUG - http://localhost:45995 "DELETE /session/ae1ec4fc7cf73c9bfdd9f0e48a969ad9 HTTP/1.1" 200 0
+[2024-06-26T07:52:01.585+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-26T07:52:01.586+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/user_airflow.py", line 118, in process_link
+    result = run_selenium_job(link)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/user_airflow.py", line 60, in run_selenium_job
+    functions_instance = User_Functions()
+                         ^^^^^^^^^^^^^^^^
+TypeError: User_Functions.__init__() missing 1 required positional argument: 'includesPosts'
+[2024-06-26T07:52:01.609+0000] {taskinstance.py:562} DEBUG - Task Duration set to 2.690214
+[2024-06-26T07:52:01.610+0000] {taskinstance.py:584} DEBUG - Clearing next_method and next_kwargs.
+[2024-06-26T07:52:01.611+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=USER1, task_id=process_link_0, run_id=manual__2024-06-26T07:51:54.894952+00:00, execution_date=20240626T075154, start_date=20240626T075158, end_date=20240626T075201
+[2024-06-26T07:52:01.631+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 536 for task process_link_0 (User_Functions.__init__() missing 1 required positional argument: 'includesPosts'; 2484)
+[2024-06-26T07:52:01.671+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-26T07:52:01.692+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-26T07:52:01.695+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

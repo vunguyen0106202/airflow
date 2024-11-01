@@ -1,0 +1,286 @@
+[2024-06-26T09:03:48.345+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-26T09:03:48.422+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-26T09:03:48.460+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-26T09:03:48.532+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Us1.get_urls_task manual__2024-06-26T09:03:44.412532+00:00 [queued]>
+[2024-06-26T09:03:48.552+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Us1.get_urls_task manual__2024-06-26T09:03:44.412532+00:00 [queued]>
+[2024-06-26T09:03:48.553+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-26T09:03:48.577+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): get_urls_task> on 2024-06-26 09:03:44.412532+00:00
+[2024-06-26T09:03:48.587+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=4867) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-26T09:03:48.590+0000] {standard_task_runner.py:63} INFO - Started process 4875 to run task
+[2024-06-26T09:03:48.588+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Us1', 'get_urls_task', 'manual__2024-06-26T09:03:44.412532+00:00', '--job-id', '547', '--raw', '--subdir', 'DAGS_FOLDER/first_out.py', '--cfg-path', '/tmp/tmp6thu1zq4']
+[2024-06-26T09:03:48.593+0000] {standard_task_runner.py:91} INFO - Job 547: Subtask get_urls_task
+[2024-06-26T09:03:48.657+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-26T09:03:48.664+0000] {task_command.py:426} INFO - Running <TaskInstance: Us1.get_urls_task manual__2024-06-26T09:03:44.412532+00:00 [running]> on host ccfa35e0da07
+[2024-06-26T09:03:48.665+0000] {settings.py:363} DEBUG - Disposing DB connection pool (PID 4875)
+[2024-06-26T09:03:48.666+0000] {settings.py:250} DEBUG - Setting up DB connection pool (PID 4875)
+[2024-06-26T09:03:48.666+0000] {settings.py:298} DEBUG - settings.prepare_engine_args(): Using NullPool
+[2024-06-26T09:03:48.736+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-26T09:03:48.845+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Us1' AIRFLOW_CTX_TASK_ID='get_urls_task' AIRFLOW_CTX_EXECUTION_DATE='2024-06-26T09:03:44.412532+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-26T09:03:44.412532+00:00'
+[2024-06-26T09:03:48.848+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-26T09:04:46.000+0000] {job.py:218} ERROR - Job heartbeat got an exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "postgres" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/job.py", line 192, in heartbeat
+    self._merge_from(Job._fetch_from_db(self, session))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/api_internal/internal_api_call.py", line 115, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/retries.py", line 89, in wrapped_function
+    for attempt in run_with_db_retries(max_retries=retries, logger=logger, **retry_kwargs):
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 435, in __iter__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 368, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 410, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 183, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/retries.py", line 98, in wrapped_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/job.py", line 316, in _fetch_from_db
+    session.merge(job)
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 3056, in merge
+    return self._merge(
+           ^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 3136, in _merge
+    merged = self.get(
+             ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2853, in get
+    return self._get_impl(
+           ^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2975, in _get_impl
+    return db_load_fn(
+           ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/loading.py", line 530, in load_on_pk_identity
+    session.execute(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1716, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1555, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 750, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/future/engine.py", line 412, in connect
+    return super(Engine, self).connect()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2024-06-26T09:04:46.404+0000] {job.py:226} ERROR - Job heartbeat failed with error. Scheduler is in unhealthy state
+[2024-06-26T09:05:00.445+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-26T09:05:00.448+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/first_out.py", line 37, in run_selenium_job
+    page_id = functions_instance.get_id(link)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/fun/fun_user.py", line 76, in get_id
+    driver.get(link)
+  File "/home/airflow/.local/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 356, in get
+    self.execute(Command.GET, {"url": url})
+  File "/home/airflow/.local/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 347, in execute
+    self.error_handler.check_response(response)
+  File "/home/airflow/.local/lib/python3.12/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: session deleted because of page crash
+from unknown error: cannot determine loading status
+from tab crashed
+  (Session info: chrome-headless-shell=126.0.6478.114)
+Stacktrace:
+#0 0x55fbe0fdb8ae <unknown>
+#1 0x55fbe0cac966 <unknown>
+#2 0x55fbe0c99899 <unknown>
+#3 0x55fbe0c98fa6 <unknown>
+#4 0x55fbe0c9884b <unknown>
+#5 0x55fbe0c986e0 <unknown>
+#6 0x55fbe0c96ba0 <unknown>
+#7 0x55fbe0c970b9 <unknown>
+#8 0x55fbe0ca4a14 <unknown>
+#9 0x55fbe0cb7f6f <unknown>
+#10 0x55fbe0cbc68b <unknown>
+#11 0x55fbe0c9765b <unknown>
+#12 0x55fbe0cb7b71 <unknown>
+#13 0x55fbe0d33b22 <unknown>
+#14 0x55fbe0d16893 <unknown>
+#15 0x55fbe0ce72ed <unknown>
+#16 0x55fbe0ce8092 <unknown>
+#17 0x55fbe0fab256 <unknown>
+#18 0x55fbe0fae5f9 <unknown>
+#19 0x55fbe0fae0bf <unknown>
+#20 0x55fbe0faea75 <unknown>
+#21 0x55fbe0f9b79f <unknown>
+#22 0x55fbe0faedc0 <unknown>
+#23 0x55fbe0f846c6 <unknown>
+#24 0x55fbe0fcbfb5 <unknown>
+#25 0x55fbe0fcc1a2 <unknown>
+#26 0x55fbe0fdad9a <unknown>
+#27 0x7f2aaa209134 <unknown>
+
+[2024-06-26T09:05:00.554+0000] {taskinstance.py:562} DEBUG - Task Duration set to 72.020577
+[2024-06-26T09:05:00.573+0000] {taskinstance.py:584} DEBUG - Clearing next_method and next_kwargs.
+[2024-06-26T09:05:00.574+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=Us1, task_id=get_urls_task, run_id=manual__2024-06-26T09:03:44.412532+00:00, execution_date=20240626T090344, start_date=20240626T090348, end_date=20240626T090500
+[2024-06-26T09:05:00.645+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 547 for task get_urls_task (Message: unknown error: session deleted because of page crash
+from unknown error: cannot determine loading status
+from tab crashed
+  (Session info: chrome-headless-shell=126.0.6478.114)
+Stacktrace:
+#0 0x55fbe0fdb8ae <unknown>
+#1 0x55fbe0cac966 <unknown>
+#2 0x55fbe0c99899 <unknown>
+#3 0x55fbe0c98fa6 <unknown>
+#4 0x55fbe0c9884b <unknown>
+#5 0x55fbe0c986e0 <unknown>
+#6 0x55fbe0c96ba0 <unknown>
+#7 0x55fbe0c970b9 <unknown>
+#8 0x55fbe0ca4a14 <unknown>
+#9 0x55fbe0cb7f6f <unknown>
+#10 0x55fbe0cbc68b <unknown>
+#11 0x55fbe0c9765b <unknown>
+#12 0x55fbe0cb7b71 <unknown>
+#13 0x55fbe0d33b22 <unknown>
+#14 0x55fbe0d16893 <unknown>
+#15 0x55fbe0ce72ed <unknown>
+#16 0x55fbe0ce8092 <unknown>
+#17 0x55fbe0fab256 <unknown>
+#18 0x55fbe0fae5f9 <unknown>
+#19 0x55fbe0fae0bf <unknown>
+#20 0x55fbe0faea75 <unknown>
+#21 0x55fbe0f9b79f <unknown>
+#22 0x55fbe0faedc0 <unknown>
+#23 0x55fbe0f846c6 <unknown>
+#24 0x55fbe0fcbfb5 <unknown>
+#25 0x55fbe0fcc1a2 <unknown>
+#26 0x55fbe0fdad9a <unknown>
+#27 0x7f2aaa209134 <unknown>
+; 4875)
+[2024-06-26T09:05:00.694+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-26T09:05:00.756+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-26T09:05:00.762+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

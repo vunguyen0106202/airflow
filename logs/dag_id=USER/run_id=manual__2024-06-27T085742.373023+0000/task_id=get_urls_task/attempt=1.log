@@ -1,0 +1,53 @@
+[2024-06-27T08:57:46.108+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T08:57:46.150+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T08:57:46.167+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-27T08:57:46.214+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: USER.get_urls_task manual__2024-06-27T08:57:42.373023+00:00 [queued]>
+[2024-06-27T08:57:46.228+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: USER.get_urls_task manual__2024-06-27T08:57:42.373023+00:00 [queued]>
+[2024-06-27T08:57:46.229+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-27T08:57:46.251+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): get_urls_task> on 2024-06-27 08:57:42.373023+00:00
+[2024-06-27T08:57:46.258+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=1296) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-27T08:57:46.260+0000] {standard_task_runner.py:63} INFO - Started process 1297 to run task
+[2024-06-27T08:57:46.260+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'USER', 'get_urls_task', 'manual__2024-06-27T08:57:42.373023+00:00', '--job-id', '724', '--raw', '--subdir', 'DAGS_FOLDER/user_***.py', '--cfg-path', '/tmp/tmpdchrls21']
+[2024-06-27T08:57:46.262+0000] {standard_task_runner.py:91} INFO - Job 724: Subtask get_urls_task
+[2024-06-27T08:57:46.353+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T08:57:46.362+0000] {task_command.py:426} INFO - Running <TaskInstance: USER.get_urls_task manual__2024-06-27T08:57:42.373023+00:00 [running]> on host ccfa35e0da07
+[2024-06-27T08:57:46.363+0000] {settings.py:363} DEBUG - Disposing DB connection pool (PID 1297)
+[2024-06-27T08:57:46.364+0000] {settings.py:250} DEBUG - Setting up DB connection pool (PID 1297)
+[2024-06-27T08:57:46.365+0000] {settings.py:298} DEBUG - settings.prepare_engine_args(): Using NullPool
+[2024-06-27T08:57:46.412+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T08:57:46.486+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='USER' AIRFLOW_CTX_TASK_ID='get_urls_task' AIRFLOW_CTX_EXECUTION_DATE='2024-06-27T08:57:42.373023+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-27T08:57:42.373023+00:00'
+[2024-06-27T08:57:46.490+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-27T08:57:46.491+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-27T08:57:46.492+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/user_airflow.py", line 22, in get_data_to_minio
+    client = Minio(url,
+             ^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/minio/api.py", line 153, in __init__
+    ("https://" if secure else "http://") + endpoint,
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~
+TypeError: can only concatenate str (not "list") to str
+[2024-06-27T08:57:46.517+0000] {taskinstance.py:562} DEBUG - Task Duration set to 0.30185
+[2024-06-27T08:57:46.519+0000] {taskinstance.py:584} DEBUG - Clearing next_method and next_kwargs.
+[2024-06-27T08:57:46.519+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=USER, task_id=get_urls_task, run_id=manual__2024-06-27T08:57:42.373023+00:00, execution_date=20240627T085742, start_date=20240627T085746, end_date=20240627T085746
+[2024-06-27T08:57:46.580+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 724 for task get_urls_task (can only concatenate str (not "list") to str; 1297)
+[2024-06-27T08:57:46.601+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-27T08:57:46.635+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-27T08:57:46.644+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

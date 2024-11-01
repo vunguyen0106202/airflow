@@ -1,0 +1,243 @@
+[2024-06-27T09:00:41.826+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T09:00:41.957+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T09:00:41.978+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-27T09:00:42.032+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: USER1.process_link_1 manual__2024-06-27T09:00:06.822650+00:00 [queued]>
+[2024-06-27T09:00:42.052+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: USER1.process_link_1 manual__2024-06-27T09:00:06.822650+00:00 [queued]>
+[2024-06-27T09:00:42.053+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-27T09:00:42.085+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): process_link_1> on 2024-06-27 09:00:06.822650+00:00
+[2024-06-27T09:00:42.100+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=1337) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-27T09:00:42.103+0000] {standard_task_runner.py:63} INFO - Started process 1340 to run task
+[2024-06-27T09:00:42.103+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'USER1', 'process_link_1', 'manual__2024-06-27T09:00:06.822650+00:00', '--job-id', '727', '--raw', '--subdir', 'DAGS_FOLDER/user_***.py', '--cfg-path', '/tmp/tmpjb1ffeo9']
+[2024-06-27T09:00:42.105+0000] {standard_task_runner.py:91} INFO - Job 727: Subtask process_link_1
+[2024-06-27T09:00:42.242+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T09:00:42.252+0000] {task_command.py:426} INFO - Running <TaskInstance: USER1.process_link_1 manual__2024-06-27T09:00:06.822650+00:00 [running]> on host ccfa35e0da07
+[2024-06-27T09:00:42.253+0000] {settings.py:363} DEBUG - Disposing DB connection pool (PID 1340)
+[2024-06-27T09:00:42.254+0000] {settings.py:250} DEBUG - Setting up DB connection pool (PID 1340)
+[2024-06-27T09:00:42.255+0000] {settings.py:298} DEBUG - settings.prepare_engine_args(): Using NullPool
+[2024-06-27T09:00:42.458+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T09:00:42.601+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='USER1' AIRFLOW_CTX_TASK_ID='process_link_1' AIRFLOW_CTX_EXECUTION_DATE='2024-06-27T09:00:06.822650+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-27T09:00:06.822650+00:00'
+[2024-06-27T09:00:42.605+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-27T09:00:50.941+0000] {connectionpool.py:244} DEBUG - Starting new HTTP connection (1): localhost:57337
+[2024-06-27T09:01:19.504+0000] {job.py:218} ERROR - Job heartbeat got an exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "postgres" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/job.py", line 192, in heartbeat
+    self._merge_from(Job._fetch_from_db(self, session))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/api_internal/internal_api_call.py", line 115, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/retries.py", line 89, in wrapped_function
+    for attempt in run_with_db_retries(max_retries=retries, logger=logger, **retry_kwargs):
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 435, in __iter__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 368, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 410, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/tenacity/__init__.py", line 183, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/retries.py", line 98, in wrapped_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/job.py", line 316, in _fetch_from_db
+    session.merge(job)
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 3056, in merge
+    return self._merge(
+           ^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 3136, in _merge
+    merged = self.get(
+             ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2853, in get
+    return self._get_impl(
+           ^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2975, in _get_impl
+    return db_load_fn(
+           ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/loading.py", line 530, in load_on_pk_identity
+    session.execute(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1716, in execute
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1555, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 750, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/future/engine.py", line 412, in connect
+    return super(Engine, self).connect()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+           ^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 690, in __connect
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2024-06-27T09:01:20.343+0000] {job.py:226} ERROR - Job heartbeat failed with error. Scheduler is in unhealthy state
+[2024-06-27T09:01:45.715+0000] {connectionpool.py:549} DEBUG - http://localhost:57337 "POST /session HTTP/1.1" 200 0
+[2024-06-27T09:01:48.465+0000] {connectionpool.py:549} DEBUG - http://localhost:57337 "POST /session/e02c23980c80fedc4c564b5d546ee2d8/url HTTP/1.1" 200 0
+[2024-06-27T09:01:48.817+0000] {connectionpool.py:549} DEBUG - http://localhost:57337 "GET /session/e02c23980c80fedc4c564b5d546ee2d8/source HTTP/1.1" 200 0
+[2024-06-27T09:01:48.955+0000] {connectionpool.py:549} DEBUG - http://localhost:57337 "POST /session/e02c23980c80fedc4c564b5d546ee2d8/timeouts HTTP/1.1" 200 0
+[2024-06-27T09:01:48.958+0000] {fun_user.py:70} INFO - Found id: 100015161496348
+[2024-06-27T09:01:49.022+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:50.011+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348?fields=id,name,picture,location,work,education,relationship_status,events,email,mobile_phone,gender,birthday&access_token=*** HTTP/1.1" 200 736
+[2024-06-27T09:01:50.075+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:50.635+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/family?access_token=***&fields=id,name,relationship&limit=15 HTTP/1.1" 200 494
+[2024-06-27T09:01:50.675+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:51.159+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/friends?access_token=***&fields=id,name,link HTTP/1.1" 200 1326
+[2024-06-27T09:01:51.193+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:51.846+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/friends?access_token=***&fields=id,name,link&after=QVFIUnhMbmNjZA0x4N1FseTFRZAjBRN0l2ekdISDFTX2JCMHBxeXBXbmZAKVnBZARUcwODRUSUdfSWEtdkRjMGR6VmpGOHdTa2NHV1BSWmpQakVIaWRoZAGE1LXFB HTTP/1.1" 200 1385
+[2024-06-27T09:01:51.858+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:52.428+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/friends?access_token=***&fields=id,name,link&after=QVFIUnlMVGxfbzE2YUh6ZAy0zUTA5NF9LRVRNT3JpQ2Y5NllEdzlyUzAzaXJxZA2o3WkRGOVVZATVF4SzZAxX0s3dHdjY2tMUlFwOFJMLTExeVI5cWR6eTNlUHd3 HTTP/1.1" 200 1378
+[2024-06-27T09:01:52.445+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:52.989+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/friends?access_token=***&fields=id,name,link&after=QVFIUmVEbTNZAdTFvbGozbGVQcFJrRTNhOTk3WEJXbWF1VDFNYVNzTVZA0UlgxRDY0cVVuUXRvQW54dzZAQTXlobldKcEtDYVR0X0s4aWNBcGhlWEhDcHZAvaXVR HTTP/1.1" 200 1321
+[2024-06-27T09:01:53.030+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:53.549+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/friends?access_token=***&fields=id,name,link&after=QVFIUkZAseFdkcHRSWDh1eVM1THBONHVFSnBwMllIQzhxMmpXbU5VQ2ZA0ZAWlZAaUs4RVVId0hscDBRalBUa3BCZA1pYVnNjcUFQZAVpZAbUlJUDBIVURjN0RWV2ln HTTP/1.1" 200 1386
+[2024-06-27T09:01:53.559+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:54.035+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/friends?access_token=***&fields=id,name,link&after=QVFIUjdFcTk3M2RTLWhtOUttcTRQRUtvYnNuWWhEMmtnQnNsNzhpMHBJQ3V4NDBySU1OQmtua3RSaFlBOVotRUFFZAkJEdU1FU3pNdnFaTEI5OWJZAU24xSHZAR HTTP/1.1" 200 1332
+[2024-06-27T09:01:54.043+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:54.528+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/friends?access_token=***&fields=id,name,link&after=QVFIUkVXYmthaEEwNC10enpVR1hnOFN5RHgxT0dVQk1kbzV4WExOa0U3OXJpYUxBNWhRWkZAMTTg1cnRlWGxWRDh1Q25XNzVRYjVqREJpb2JqS2ZAkQ1hCb3dn HTTP/1.1" 200 1348
+[2024-06-27T09:01:54.536+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:55.088+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/friends?access_token=***&fields=id,name,link&after=QVFIUlhvXzVDRHgtNG1VcHhyLU04SkNrbXB0cHQtWHdqajhCRWVIQlg5V0puSXg2ZAVl1TnB1NXNhSzkwZA0JaZAmpELUNWYjB1cXV4Q0lVMk9JbnZAjbGhTbWF3 HTTP/1.1" 200 1382
+[2024-06-27T09:01:55.097+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:55.524+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/friends?access_token=***&fields=id,name,link&after=QVFIUjFoYlhqa1FGYzh5ZA2ZAKaGNSaGZA2Ny12SWJTTDJLaFNuN19tZAldvc1hqd3kyM212T3BicUxXRVN2aV9VMENzeThQTGR6c2NIckF5VE5QT0s3dFoyWFh3 HTTP/1.1" 200 1345
+[2024-06-27T09:01:55.533+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:56.124+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/friends?access_token=***&fields=id,name,link&after=QVFIUkRQZAG5jU3ZAUbFVQMmVuX0dYX3JJaldTbU1WQktMMmpTVW9YUTZA0UlRUZATFlaG92aUVXVGItU3YtYl9fbWhKT1FRT2VoNGZAPcWFvcEFFWkw5V1VkZATdB HTTP/1.1" 200 1312
+[2024-06-27T09:01:56.132+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:56.614+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/friends?access_token=***&fields=id,name,link&after=QVFIUm41dUdRNW9VM2FBcXo3WmZARampoNHdLc04wOXlDSlVQYW0zVkpaNkhoN1hVSFZA3LTl2NDVFZAURuTUJNeXFUY3hHMl9FN0c0b3lEakRLM0dmV0dXR1p3 HTTP/1.1" 200 1319
+[2024-06-27T09:01:56.633+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:57.120+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/friends?access_token=***&fields=id,name,link&after=QVFIUkRDc05IbjV2bHJ6ODhmZAm14ZATZADZA1dPSlNnQktuaXRRMUxneXhhdmZAaTTJOWlZAoaWc1dXhUQlpEX3d4NjJseHhIdExHWUd1RjB4aWZAEVFJDSWpJTG1R HTTP/1.1" 200 1348
+[2024-06-27T09:01:57.130+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:57.549+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/friends?access_token=***&fields=id,name,link&after=QVFIUlNtbUJEOFB4ZAFJJQUlCWVFfNEpvR0FaZADFWYVdNamliVDVuZAVVQRTBWNWZAqUkMzcS1IQTFFM0dKcTlPM19KLXA2am9LUXltcWRWVVFjR1kzMlJQUXFB HTTP/1.1" 200 1340
+[2024-06-27T09:01:57.556+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:57.995+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/friends?access_token=***&fields=id,name,link&after=QVFIUm5kVXVTMFphemxVbEZAHSi1GZAi0xRU9ucUV6cEFzbTVfWHdmZA3dMQ0FvQ0pCRUx2TG1qUkluSDZAqckl1UnJtUHB3aGhJbm9zdV9EZAnVWaUpuTHdVek9n HTTP/1.1" 200 1150
+[2024-06-27T09:01:58.007+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:58.554+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/likes?access_token=***&fields=id,name,link HTTP/1.1" 200 3699
+[2024-06-27T09:01:58.563+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:01:59.117+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/likes?access_token=***&fields=id,name,link&after=MjU1MjIyMTk3OTQ5MTQ0 HTTP/1.1" 200 1066
+[2024-06-27T09:01:59.125+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:02:01.008+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348?fields=id,posts%7Bcreated_time,message,full_picture,reactions.as(fb_preactions_total).limit(0).summary(total_count)%2Creactions.as(fb_preactions_like).type(LIKE).limit(0).summary(total_count)%2Creactions.as(fb_preactions_love).type(LOVE).limit(0).summary(total_count)%2Creactions.as(fb_preactions_wow).type(WOW).limit(0).summary(total_count)%2Creactions.as(fb_preactions_haha).type(HAHA).limit(0).summary(total_count)%2Creactions.as(fb_preactions_sad).type(SAD).limit(0).summary(total_count)%2Creactions.as(fb_preactions_angry).type(ANGRY).limit(0).summary(total_count),comments.limit(25)%7Bid,created_time,from,message,attachment,comments.limit(25)%7Bid,created_time,from,message,attachment%7D%7D%7D&access_token=*** HTTP/1.1" 200 45363
+[2024-06-27T09:02:01.092+0000] {connectionpool.py:1055} DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+[2024-06-27T09:02:01.572+0000] {connectionpool.py:549} DEBUG - https://graph.facebook.com:443 "GET /v20.0/100015161496348/posts?access_token=***&fields=created_time%2Cmessage%2Cfull_picture%2Creactions.as%28fb_preactions_total%29.limit%280%29.summary%28total_count%29%2Creactions.as%28fb_preactions_like%29.type%28LIKE%29.limit%280%29.summary%28total_count%29%2Creactions.as%28fb_preactions_love%29.type%28LOVE%29.limit%280%29.summary%28total_count%29%2Creactions.as%28fb_preactions_wow%29.type%28WOW%29.limit%280%29.summary%28total_count%29%2Creactions.as%28fb_preactions_haha%29.type%28HAHA%29.limit%280%29.summary%28total_count%29%2Creactions.as%28fb_preactions_sad%29.type%28SAD%29.limit%280%29.summary%28total_count%29%2Creactions.as%28fb_preactions_angry%29.type%28ANGRY%29.limit%280%29.summary%28total_count%29%2Ccomments.limit%2825%29%7Bid%2Ccreated_time%2Cfrom%2Cmessage%2Cattachment%2Ccomments.limit%2825%29%7Bid%2Ccreated_time%2Cfrom%2Cmessage%2Cattachment%7D%7D&until=1485520593&since&__paging_token=enc_AdDUqcAH70cMqcqbcZAW02YyswZA90oAEsht9YmvwzDr4DXaIpuHJLt3tY3ydZAHpXe2mkNUVECmRTyOXyIyiU87bwDWhAzLHl27YPlwVAsitv1RwZDZD&__previous HTTP/1.1" 200 973
+[2024-06-27T09:02:02.842+0000] {connectionpool.py:244} DEBUG - Starting new HTTP connection (1): 192.168.10.64:9000
+[2024-06-27T09:02:02.856+0000] {connectionpool.py:549} DEBUG - http://192.168.10.64:9000 "GET /datafbcrawl?location= HTTP/1.1" 200 0
+[2024-06-27T09:02:02.866+0000] {connectionpool.py:549} DEBUG - http://192.168.10.64:9000 "HEAD /datafbcrawl HTTP/1.1" 200 0
+[2024-06-27T09:02:02.876+0000] {connectionpool.py:549} DEBUG - http://192.168.10.64:9000 "HEAD /datafbcrawl/user_data/user_data_100015161496348.json HTTP/1.1" 404 0
+[2024-06-27T09:02:02.966+0000] {connectionpool.py:549} DEBUG - http://192.168.10.64:9000 "PUT /datafbcrawl/user_data/user_data_100015161496348.json HTTP/1.1" 200 0
+[2024-06-27T09:02:02.967+0000] {user_airflow.py:113} INFO - Uploaded data as object user_data/user_data_100015161496348.json to bucket datafbcrawl
+[2024-06-27T09:02:02.968+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-06-27T09:02:02.978+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-27T09:02:03.038+0000] {taskinstance.py:584} DEBUG - Clearing next_method and next_kwargs.
+[2024-06-27T09:02:03.040+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=USER1, task_id=process_link_1, run_id=manual__2024-06-27T09:00:06.822650+00:00, execution_date=20240627T090006, start_date=20240627T090042, end_date=20240627T090203
+[2024-06-27T09:02:03.041+0000] {taskinstance.py:562} DEBUG - Task Duration set to 81.006441
+[2024-06-27T09:02:03.095+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-27T09:02:03.119+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-27T09:02:03.122+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

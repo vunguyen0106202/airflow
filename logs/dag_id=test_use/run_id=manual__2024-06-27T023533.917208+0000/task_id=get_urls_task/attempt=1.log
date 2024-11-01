@@ -1,0 +1,57 @@
+[2024-06-27T02:35:35.076+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T02:35:35.120+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T02:35:35.138+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-27T02:35:35.165+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: test_use.get_urls_task manual__2024-06-27T02:35:33.917208+00:00 [queued]>
+[2024-06-27T02:35:35.176+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: test_use.get_urls_task manual__2024-06-27T02:35:33.917208+00:00 [queued]>
+[2024-06-27T02:35:35.177+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-27T02:35:35.198+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): get_urls_task> on 2024-06-27 02:35:33.917208+00:00
+[2024-06-27T02:35:35.206+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=1653) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-27T02:35:35.208+0000] {standard_task_runner.py:63} INFO - Started process 1654 to run task
+[2024-06-27T02:35:35.207+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'test_use', 'get_urls_task', 'manual__2024-06-27T02:35:33.917208+00:00', '--job-id', '566', '--raw', '--subdir', 'DAGS_FOLDER/first_out.py', '--cfg-path', '/tmp/tmp3tyesvld']
+[2024-06-27T02:35:35.210+0000] {standard_task_runner.py:91} INFO - Job 566: Subtask get_urls_task
+[2024-06-27T02:35:35.259+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T02:35:35.273+0000] {task_command.py:426} INFO - Running <TaskInstance: test_use.get_urls_task manual__2024-06-27T02:35:33.917208+00:00 [running]> on host ccfa35e0da07
+[2024-06-27T02:35:35.274+0000] {settings.py:363} DEBUG - Disposing DB connection pool (PID 1654)
+[2024-06-27T02:35:35.275+0000] {settings.py:250} DEBUG - Setting up DB connection pool (PID 1654)
+[2024-06-27T02:35:35.276+0000] {settings.py:298} DEBUG - settings.prepare_engine_args(): Using NullPool
+[2024-06-27T02:35:35.329+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T02:35:35.398+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='test_use' AIRFLOW_CTX_TASK_ID='get_urls_task' AIRFLOW_CTX_EXECUTION_DATE='2024-06-27T02:35:33.917208+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-27T02:35:33.917208+00:00'
+[2024-06-27T02:35:35.401+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-27T02:35:49.799+0000] {fun_user.py:87} INFO - Found id: 00013963483849,
+[2024-06-27T02:35:50.874+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-27T02:35:50.875+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/first_out.py", line 31, in run_selenium_job
+    result = functions_instance.get_all_data(page_id, access_token)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/fun/fun_user.py", line 261, in get_all_data
+    result['fb_family'] = self.get_family(user_id, access_token)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/fun/fun_user.py", line 154, in get_family
+    family_list = data['data']
+                  ~~~~^^^^^^^^
+KeyError: 'data'
+[2024-06-27T02:35:50.921+0000] {taskinstance.py:562} DEBUG - Task Duration set to 15.753814
+[2024-06-27T02:35:50.924+0000] {taskinstance.py:584} DEBUG - Clearing next_method and next_kwargs.
+[2024-06-27T02:35:50.925+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=test_use, task_id=get_urls_task, run_id=manual__2024-06-27T02:35:33.917208+00:00, execution_date=20240627T023533, start_date=20240627T023535, end_date=20240627T023550
+[2024-06-27T02:35:50.961+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 566 for task get_urls_task ('data'; 1654)
+[2024-06-27T02:35:50.994+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-27T02:35:51.015+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-27T02:35:51.018+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

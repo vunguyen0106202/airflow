@@ -1,0 +1,38 @@
+[2024-06-27T09:00:37.997+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T09:00:38.067+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T09:00:38.096+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-27T09:00:38.196+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: USER1.get_urls_task manual__2024-06-27T09:00:06.822650+00:00 [queued]>
+[2024-06-27T09:00:38.213+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: USER1.get_urls_task manual__2024-06-27T09:00:06.822650+00:00 [queued]>
+[2024-06-27T09:00:38.214+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-27T09:00:38.250+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): get_urls_task> on 2024-06-27 09:00:06.822650+00:00
+[2024-06-27T09:00:38.263+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=1328) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-27T09:00:38.267+0000] {standard_task_runner.py:63} INFO - Started process 1336 to run task
+[2024-06-27T09:00:38.271+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'USER1', 'get_urls_task', 'manual__2024-06-27T09:00:06.822650+00:00', '--job-id', '726', '--raw', '--subdir', 'DAGS_FOLDER/user_***.py', '--cfg-path', '/tmp/tmpgqh3fs_a']
+[2024-06-27T09:00:38.275+0000] {standard_task_runner.py:91} INFO - Job 726: Subtask get_urls_task
+[2024-06-27T09:00:38.410+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T09:00:38.421+0000] {task_command.py:426} INFO - Running <TaskInstance: USER1.get_urls_task manual__2024-06-27T09:00:06.822650+00:00 [running]> on host ccfa35e0da07
+[2024-06-27T09:00:38.422+0000] {settings.py:363} DEBUG - Disposing DB connection pool (PID 1336)
+[2024-06-27T09:00:38.423+0000] {settings.py:250} DEBUG - Setting up DB connection pool (PID 1336)
+[2024-06-27T09:00:38.424+0000] {settings.py:298} DEBUG - settings.prepare_engine_args(): Using NullPool
+[2024-06-27T09:00:38.519+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T09:00:38.688+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='USER1' AIRFLOW_CTX_TASK_ID='get_urls_task' AIRFLOW_CTX_EXECUTION_DATE='2024-06-27T09:00:06.822650+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-27T09:00:06.822650+00:00'
+[2024-06-27T09:00:38.695+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-27T09:00:38.702+0000] {connectionpool.py:244} DEBUG - Starting new HTTP connection (1): 192.168.10.64:9000
+[2024-06-27T09:00:38.724+0000] {connectionpool.py:549} DEBUG - http://192.168.10.64:9000 "GET /datafbcrawl?location= HTTP/1.1" 200 0
+[2024-06-27T09:00:38.736+0000] {connectionpool.py:549} DEBUG - http://192.168.10.64:9000 "GET /datafbcrawl?delimiter=&encoding-type=url&list-type=2&max-keys=1000&prefix=list_url HTTP/1.1" 200 0
+[2024-06-27T09:00:38.751+0000] {connectionpool.py:549} DEBUG - http://192.168.10.64:9000 "HEAD /datafbcrawl/list_url/user.txt HTTP/1.1" 200 0
+[2024-06-27T09:00:38.769+0000] {connectionpool.py:549} DEBUG - http://192.168.10.64:9000 "GET /datafbcrawl/list_url/user.txt HTTP/1.1" 200 146
+[2024-06-27T09:00:38.771+0000] {user_airflow.py:42} INFO - Successfully downloaded list_url/user.txt to /tmp/page_url/user.txt
+[2024-06-27T09:00:38.772+0000] {user_airflow.py:45} INFO - Content of /tmp/page_url/user.txt: https://www.facebook.com/profile.php?id=100042589883308
+https://www.facebook.com/zhao209
+https://www.facebook.com/profile.php?id=100013355110045
+[2024-06-27T09:00:38.773+0000] {python.py:237} INFO - Done. Returned value was: ['https://www.facebook.com/profile.php?id=100042589883308', 'https://www.facebook.com/zhao209', 'https://www.facebook.com/profile.php?id=100013355110045']
+[2024-06-27T09:00:38.774+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-27T09:00:38.829+0000] {taskinstance.py:584} DEBUG - Clearing next_method and next_kwargs.
+[2024-06-27T09:00:38.830+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=USER1, task_id=get_urls_task, run_id=manual__2024-06-27T09:00:06.822650+00:00, execution_date=20240627T090006, start_date=20240627T090038, end_date=20240627T090038
+[2024-06-27T09:00:38.831+0000] {taskinstance.py:562} DEBUG - Task Duration set to 0.632706
+[2024-06-27T09:00:38.928+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-27T09:00:38.982+0000] {taskinstance.py:3503} INFO - 3 downstream tasks scheduled from follow-on schedule check
+[2024-06-27T09:00:38.985+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

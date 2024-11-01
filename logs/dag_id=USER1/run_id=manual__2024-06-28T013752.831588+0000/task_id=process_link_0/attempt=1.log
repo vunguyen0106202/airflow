@@ -1,0 +1,24 @@
+[2024-06-28T01:37:58.417+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-28T01:37:58.469+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-28T01:37:58.495+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-28T01:37:58.551+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: USER1.process_link_0 manual__2024-06-28T01:37:52.831588+00:00 [queued]>
+[2024-06-28T01:37:58.575+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: USER1.process_link_0 manual__2024-06-28T01:37:52.831588+00:00 [queued]>
+[2024-06-28T01:37:58.577+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-28T01:37:58.622+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): process_link_0> on 2024-06-28 01:37:52.831588+00:00
+[2024-06-28T01:37:58.634+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=460) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-28T01:37:58.638+0000] {standard_task_runner.py:63} INFO - Started process 463 to run task
+[2024-06-28T01:37:58.638+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'USER1', 'process_link_0', 'manual__2024-06-28T01:37:52.831588+00:00', '--job-id', '740', '--raw', '--subdir', 'DAGS_FOLDER/user_***.py', '--cfg-path', '/tmp/tmpfh77ca3l']
+[2024-06-28T01:37:58.641+0000] {standard_task_runner.py:91} INFO - Job 740: Subtask process_link_0
+[2024-06-28T01:37:58.915+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-28T01:37:58.922+0000] {task_command.py:426} INFO - Running <TaskInstance: USER1.process_link_0 manual__2024-06-28T01:37:52.831588+00:00 [running]> on host ccfa35e0da07
+[2024-06-28T01:37:58.923+0000] {settings.py:363} DEBUG - Disposing DB connection pool (PID 463)
+[2024-06-28T01:37:58.924+0000] {settings.py:250} DEBUG - Setting up DB connection pool (PID 463)
+[2024-06-28T01:37:58.924+0000] {settings.py:298} DEBUG - settings.prepare_engine_args(): Using NullPool
+[2024-06-28T01:38:09.055+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 740 for task process_link_0 ((psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8); 463)
+[2024-06-28T01:38:22.120+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-28T01:38:22.431+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-28T01:38:22.436+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

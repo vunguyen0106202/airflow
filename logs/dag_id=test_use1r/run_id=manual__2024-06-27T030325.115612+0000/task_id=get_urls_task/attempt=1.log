@@ -1,0 +1,30 @@
+[2024-06-27T03:03:27.167+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T03:03:27.216+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T03:03:27.231+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-27T03:03:27.269+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: test_use1r.get_urls_task manual__2024-06-27T03:03:25.115612+00:00 [queued]>
+[2024-06-27T03:03:27.282+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: test_use1r.get_urls_task manual__2024-06-27T03:03:25.115612+00:00 [queued]>
+[2024-06-27T03:03:27.283+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-06-27T03:03:27.304+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): get_urls_task> on 2024-06-27 03:03:25.115612+00:00
+[2024-06-27T03:03:27.312+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=2923) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-27T03:03:27.314+0000] {standard_task_runner.py:63} INFO - Started process 2924 to run task
+[2024-06-27T03:03:27.313+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'test_use1r', 'get_urls_task', 'manual__2024-06-27T03:03:25.115612+00:00', '--job-id', '576', '--raw', '--subdir', 'DAGS_FOLDER/first_out.py', '--cfg-path', '/tmp/tmp7kzd1o_h']
+[2024-06-27T03:03:27.317+0000] {standard_task_runner.py:91} INFO - Job 576: Subtask get_urls_task
+[2024-06-27T03:03:27.378+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T03:03:27.384+0000] {task_command.py:426} INFO - Running <TaskInstance: test_use1r.get_urls_task manual__2024-06-27T03:03:25.115612+00:00 [running]> on host ccfa35e0da07
+[2024-06-27T03:03:27.385+0000] {settings.py:363} DEBUG - Disposing DB connection pool (PID 2924)
+[2024-06-27T03:03:27.386+0000] {settings.py:250} DEBUG - Setting up DB connection pool (PID 2924)
+[2024-06-27T03:03:27.387+0000] {settings.py:298} DEBUG - settings.prepare_engine_args(): Using NullPool
+[2024-06-27T03:03:27.439+0000] {taskinstance.py:1042} DEBUG - previous_execution_date was called
+[2024-06-27T03:03:27.505+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='test_use1r' AIRFLOW_CTX_TASK_ID='get_urls_task' AIRFLOW_CTX_EXECUTION_DATE='2024-06-27T03:03:25.115612+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-27T03:03:25.115612+00:00'
+[2024-06-27T03:03:27.506+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-27T03:03:47.875+0000] {fun_user.py:87} INFO - Found id: 100024669795592
+[2024-06-27T03:03:49.225+0000] {python.py:237} INFO - Done. Returned value was: 100024669795592
+[2024-06-27T03:03:50.547+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-27T03:03:50.650+0000] {taskinstance.py:584} DEBUG - Clearing next_method and next_kwargs.
+[2024-06-27T03:03:50.652+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=test_use1r, task_id=get_urls_task, run_id=manual__2024-06-27T03:03:25.115612+00:00, execution_date=20240627T030325, start_date=20240627T030327, end_date=20240627T030350
+[2024-06-27T03:03:50.654+0000] {taskinstance.py:562} DEBUG - Task Duration set to 23.3808
+[2024-06-27T03:03:50.707+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-27T03:03:50.737+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-27T03:03:50.741+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
